@@ -48,12 +48,12 @@ int Heap::lexicographicallyLeastChildIndex(int index) {
 // Insert a value into a heap.
 // TO DO:: You need to write this.
 bool Heap::insert(string n) {
-	if (size == capacity){
+	if (size >= capacity){
 		return false;
 	}
 	arr[size] = n;
 	size++;
-	bubbleUp(size);	
+	bubbleUp(size-1);	
 	return true;
 }
 
@@ -64,7 +64,7 @@ void Heap::bubbleUp(int index) {
 		return;
 	}
 	int parentInd = parentIndex(index);
-	if (arr[index]>arr[parentInd]){
+	if (arr[index]<arr[parentInd]){
 		swapElements(parentInd , index);
 		bubbleUp(parentInd);
 	}	
