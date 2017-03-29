@@ -20,12 +20,10 @@ int main (void) {
 		if (!h.insert(word))
 			return 1;
 	}
-	
-	
+
 	for (int i=0; i<n_insert; i++) {
 		cout << h.remove() << endl;
 	}
-	
 
 	return 0;
 }
