@@ -76,8 +76,8 @@ int Animal::count = 0;
 
 int main(void){
 	//Animal a(5);
-	Animal* b = new Sheep(10);
-	Sheep c(11);
+	Animal b = new Sheep(10);
+	//Sheep c(11);
 	//a.sound();
 	//b->sound();
 	//cout<< a.GetAge()<<endl;
