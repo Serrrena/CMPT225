@@ -10,13 +10,14 @@ class BinaryTree{
 		BinaryTree();
 		~BinaryTree();
 		void Insert( int i );
-		void PreOrderPrint( Node* root ) const;
+		void Print();
 		Node* GetRoot() const;
 	private:
 		Node* root_; 		
-		void Insert( Node* root,int i );
+		//void Insert( Node* root,int i );
 		bool IsLeftEmpty( const Node* n ) const;
 		bool IsRightEmpty( const Node* n ) const;
+		void PreOrderPrint( Node* &root ) const;
 };
 
 class Node {
@@ -50,11 +51,49 @@ bool BinaryTree::IsRightEmpty( const Node* n )  const{
 }
 
 void BinaryTree::Insert( int i ){
-	Insert( root_,i );
-}
-void BinaryTree::Insert( Node* root,int i ){
+	/*Node* node = new Node(i);
+	if( root_ == NULL){
+		root_ = node;
+		return;
+	}
+	Node* current = root_;
 
-	Node* node = new Node;
+	while(1){
+		if( i <= current->data_ ){
+
+		}
+	}*/
+
+	Node* tmp = new Node(i);
+	if( root_ == NULL){
+		root_ = tmp;
+		return;
+	}
+	Node* current = root_;
+	while (current){
+		if (i>current->data_){
+			if (!IsRightEmpty(current)){
+				current = current->right_;				
+			}
+			else{
+				current->right_ = tmp;
+				break;
+			}
+		}
+		else{
+			if (!IsLeftEmpty(current)){
+				current = current->left_;				
+			}
+			else{
+				current->left_ = tmp;
+				break;
+			}
+		}
+	}
+}
+/*void BinaryTree::Insert( Node* root,int i ){
+
+	Node* node = new Node();
 	node->data_ = i;
 	if( root == NULL ){
 		//cout << "1" << endl;
@@ -76,16 +115,16 @@ void BinaryTree::Insert( Node* root,int i ){
 	Insert( root->left_ ,i );
 	Insert( root->right_ ,i );
 
+}*/
+void BinaryTree::Print(){
+	PreOrderPrint(root_);
 }
 
-void BinaryTree::PreOrderPrint( Node* root ) const{
+void BinaryTree::PreOrderPrint( Node* &root ) const{
 	if( root == NULL){
 		return;
 	}
-	cout << root->data_ << endl;
-	if( !IsLeftEmpty( root ) && !IsRightEmpty( root ) ){
-		return;
-	}
+	cout << root->data_ << " ";
 	PreOrderPrint( root->left_ );
 	PreOrderPrint( root->right_ );
 }
@@ -105,9 +144,28 @@ Node::Node( int i ){
 
 int main( void ){
 	BinaryTree bt;
-	for( int i = 0; i <= 2; i++ ){
-		bt.Insert( i );
-	}
-	bt.PreOrderPrint( bt.GetRoot() );
-	return 0;
+	bt.Insert( 47 );
+	bt.Insert( 63 );
+	bt.Insert( 32 );
+	bt.Insert( 19 );
+	bt.Insert( 41 );
+	bt.Insert( 79 );
+	bt.Insert( 54 );
+	bt.Insert( 10 );
+	bt.Insert( 23 );
+	bt.Insert( 37 );
+	bt.Insert( 44 );
+	bt.Insert( 53 );
+	bt.Insert( 59 );
+	bt.Insert( 96 );
+	bt.Insert( 7 );
+	bt.Insert( 12 );
+	bt.Insert( 30 );
+	bt.Insert( 57 );
+	bt.Insert( 91 );
+	bt.Insert( 97 );
+	bt.Insert( 43 );
+	bt.Print();
+	cout << endl;
+
 }

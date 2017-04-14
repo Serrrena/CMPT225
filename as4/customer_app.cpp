@@ -108,7 +108,7 @@ void printMenu() {
 	cout << " d: Delete a customer" << endl;
 	cout << " s: Search for a customer" << endl;
 	cout << " p: Print all customers" << endl;
-	!cout << " r: Print a range of customers" << endl;
+	cout << " r: Print a range of customers" << endl;
 	cout << " f: Read customer data from file" << endl;
 	cout << " q: Quit application" << endl;
 	cout << "===============================================" << endl;

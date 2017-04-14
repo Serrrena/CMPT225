@@ -1,15 +1,19 @@
 
 #ifndef CUSTOMER_H_
 #define CUSTOMER_H_
-
 #include <string>
 #include <iostream>
 using namespace std;
-
+/*#include <string>
+#include <iostream>
+using namespace std;*/
+//class Node;
 class Customer {
+//friend class Node;
 public:
 	Customer();
 	Customer(string LastName,char FirstInitial,int AcctBalance);
+	~Customer();
 	bool operator<(const Customer & c) const;
 	bool operator<=(const Customer & c) const;
 	bool operator>(const Customer & c) const;
